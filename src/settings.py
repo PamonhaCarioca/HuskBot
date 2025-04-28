@@ -62,7 +62,7 @@ def get_my_expected_position(inspector: lugo4py.GameSnapshotInspector, my_mapper
             10: {'Col': 9, 'Row': 3.5},
             11: {'Col': 9, 'Row': 1.5},
         },
-                'OFFENSIVE2': {
+        'OFFENSIVE2': {
             2: {'Col': 4.5, 'Row': 2},
             3: {'Col': 6.5, 'Row': 2.5},
             4: {'Col': 5.5, 'Row': 2.5},

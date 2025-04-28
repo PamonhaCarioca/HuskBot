@@ -77,13 +77,11 @@ class MyBot(lugo4py.Bot, ABC):
                 opponent_to_me = lugo4py.geo.distance_between_points(me.position, closest_to_me_opponent[1].position)
 
                 if ally in free_players and (ally.number != me.number) and (me_to_goal > ally_to_goal) and (catchers[1].number == ally.number):
-                    move_order = inspector.make_order_move_max_speed(ally.position)
                     kick_order = inspector.make_order_kick(ally.position, 200)
-                    return [move_order , kick_order]
+                    return [kick_order]
                 elif ally in free_players and (ally.number != me.number) and (me_to_goal > ally_to_goal) and (lugo4py.geo.distance_between_points(me.position, ally.position) < 3000):
-                    move_order = inspector.make_order_move_max_speed(ally.position)
                     kick_order = inspector.make_order_kick_max_speed(ally.position)
-                    return [move_order , kick_order]
+                    return [kick_order]
                 
 
             distance_to_goal = lugo4py.geo.distance_between_points(me.position, opponent_goal.get_center())
@@ -92,20 +90,15 @@ class MyBot(lugo4py.Bot, ABC):
                 distance_top_pole_goalkeeper = lugo4py.geo.distance_between_points(opponent_goalkeeper.position, opponent_goal.get_top_pole())
                 distance_botton_pole_goalkeeper = lugo4py.geo.distance_between_points(opponent_goalkeeper.position, opponent_goal.get_bottom_pole())
                 if distance_top_pole_goalkeeper <= distance_botton_pole_goalkeeper:
-                    # chute posicao especifica
                     a = lugo4py.Point(x = opponent_goalkeeper.position.x,  y = 3700)
                     b = lugo4py.Point(x = opponent_goalkeeper.position.x,  y = 4200)
-                    move_order = inspector.make_order_move_max_speed(b)
                     kick_order = inspector.make_order_kick(a, 350)
-                    return [move_order , kick_order]
+                    return [kick_order]
                 else:
-                    
-                    # chute posicao especifica
                     a = lugo4py.Point(x = opponent_goalkeeper.position.x,  y = 6400)
                     b = lugo4py.Point(x = opponent_goalkeeper.position.x,  y = 6000)
-                    move_order = inspector.make_order_move_max_speed(b)
                     kick_order = inspector.make_order_kick(a, 350)
-                    return [move_order , kick_order]   
+                    return [kick_order]   
             else:
                 opponent_goalkeeper = inspector.get_opponent_goalkeeper()
                 goal_direction = lugo4py.Point(x = opponent_goalkeeper.position.x , y = me.position.y)
