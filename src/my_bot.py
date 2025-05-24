@@ -72,9 +72,9 @@ class MyBot(lugo4py.Bot, ABC):
                 closest_to_me = self.get_closest_players(me.position, my_team)
                 n_catchers = 3
                 catchers = closest_to_me[:n_catchers]
-                opponent_team = inspector.get_opponent_players()
-                closest_to_me_opponent = self.get_closest_players(me.position, opponent_team)
-                opponent_to_me = lugo4py.geo.distance_between_points(me.position, closest_to_me_opponent[1].position)
+                #opponent_team = inspector.get_opponent_players()
+                #closest_to_me_opponent = self.get_closest_players(me.position, opponent_team)
+                #opponent_to_me = lugo4py.geo.distance_between_points(me.position, closest_to_me_opponent[1].position)
 
                 if ally in free_players and (ally.number != me.number) and (me_to_goal > ally_to_goal) and (catchers[1].number == ally.number):
                     kick_order = inspector.make_order_kick(ally.position, 200)
