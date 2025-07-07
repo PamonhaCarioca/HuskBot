@@ -112,7 +112,7 @@ class MyBot(lugo4py.Bot, ABC):
 
     def on_supporting(self, inspector: lugo4py.GameSnapshotInspector) -> List[lugo4py.Order]:
         try:
-            print("on disputing")
+            print("on suporting")
             me = inspector.get_me()
             ball_position = inspector.get_ball()
             my_team = inspector.get_my_team_players()
