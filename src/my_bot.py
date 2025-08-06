@@ -43,7 +43,7 @@ class MyBot(lugo4py.Bot, ABC):
             closest_players = self.get_closest_players(ball_position.position, my_team)
             n_catchers = 3
             catchers = closest_players[:n_catchers]
-            closest_players = self.get_closest_players(me.position, my_team)
+            
             if me in catchers:
                 move_order = inspector.make_order_move_max_speed(ball_position.position)
             else:
